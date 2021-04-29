@@ -15,6 +15,17 @@ namespace STIN
         public Form2()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Tools.FormTransfer(this, GlobalVars.form1);
+        }
+
+        private void Form2_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            GlobalVars.form1.Close();
         }
     }
 }
