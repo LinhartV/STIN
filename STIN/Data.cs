@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace STIN
 {
-    static class GlobalVars
+    static class Data
     {
-        public static Form1 form1;
-        public static Form2 form2;
-        public static int counter;
-
+        public static int whoTotalCases;
+        public static int mzcrTotalCases;
     }
 }
