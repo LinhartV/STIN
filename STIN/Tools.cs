@@ -18,6 +18,7 @@ namespace STIN
             thatForm.Location = thisForm.Location;
             thatForm.Show();
             thisForm.Hide();
+            //čau
         }
         public static void StartApp()
         {
