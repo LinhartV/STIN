@@ -15,6 +15,7 @@ namespace STIN
     {
         public static void FormTransfer(Form thisForm, Form thatForm)
         {
+            //ahoj
             thatForm.Location = thisForm.Location;
             thatForm.Show();
             thisForm.Hide();

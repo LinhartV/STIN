@@ -250,7 +250,7 @@ namespace STIN
         public System.Windows.Forms.Label LastDayMzcr;
         public System.Windows.Forms.Label LastDayWho;
         public System.Windows.Forms.Label LastDayDifference;
-        private System.Windows.Forms.Button button3;
+        public System.Windows.Forms.Button button3;
     }
 }
 
