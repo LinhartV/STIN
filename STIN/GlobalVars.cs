@@ -10,7 +10,7 @@ namespace STIN
     {
         public static Form1 form1;
         public static Form2 form2;
-        public static int counter;
-
+        public static Data who = new Data("https://covid19.who.int/WHO-COVID-19-global-table-data.csv", "who1.csv", 2, 20);
+        public static Data mzcr = new Data("https://onemocneni-aktualne.mzcr.cz/api/v2/covid-19/zakladni-prehled.csv", "mzcr.csv", 1, 1);
     }
 }

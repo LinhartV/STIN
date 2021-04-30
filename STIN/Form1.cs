@@ -33,7 +33,9 @@ namespace STIN
         {
             try
             {
-                Tools.Refresh();
+                Tools.Refresh(GlobalVars.who);
+                Tools.Refresh(GlobalVars.mzcr);
+
                 MessageBox.Show("Downloaded");
             }
             catch(WebException ex)
