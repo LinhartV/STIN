@@ -28,6 +28,7 @@ namespace STIN
         }
         private static void ReadCSVFile(Data data)
         {
+            //hello
             //download the file... pretty clear, ain't it
             using (var client = new WebClient())
             {
