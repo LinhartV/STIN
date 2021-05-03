@@ -27,5 +27,10 @@ namespace STIN
         {
             GlobalVars.form1.Close();
         }
+
+        private void testButton_Click(object sender, EventArgs e)
+        {
+            testLabel.Text = Tools.ReadByState(GlobalVars.states[0])[0].ToString();
+        }
     }
 }
