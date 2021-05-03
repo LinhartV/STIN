@@ -45,14 +45,18 @@ namespace STIN
             this.LastDayMzcr = new System.Windows.Forms.Label();
             this.LastDayWho = new System.Windows.Forms.Label();
             this.LastDayDifference = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(39, 38);
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 29);
+            this.button1.Size = new System.Drawing.Size(170, 70);
             this.button1.TabIndex = 0;
             this.button1.Text = "Second page";
             this.button1.UseVisualStyleBackColor = true;
@@ -60,9 +64,10 @@ namespace STIN
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(30, 180);
+            this.button2.Location = new System.Drawing.Point(0, 273);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 29);
+            this.button2.Size = new System.Drawing.Size(170, 70);
             this.button2.TabIndex = 1;
             this.button2.Text = "Refresh";
             this.button2.UseVisualStyleBackColor = true;
@@ -71,164 +76,178 @@ namespace STIN
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(557, 42);
+            this.label1.Location = new System.Drawing.Point(210, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 20);
+            this.label1.Size = new System.Drawing.Size(36, 15);
             this.label1.TabIndex = 2;
             this.label1.Text = "WHO";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(420, 42);
+            this.label2.Location = new System.Drawing.Point(91, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 20);
+            this.label2.Size = new System.Drawing.Size(40, 15);
             this.label2.TabIndex = 3;
             this.label2.Text = "MZČR";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(680, 42);
+            this.label3.Location = new System.Drawing.Point(318, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 20);
+            this.label3.Size = new System.Drawing.Size(61, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "Difference";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(342, 98);
+            this.label4.Location = new System.Drawing.Point(22, 55);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 20);
+            this.label4.Size = new System.Drawing.Size(31, 15);
             this.label4.TabIndex = 5;
             this.label4.Text = "Date";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(342, 163);
+            this.label5.Location = new System.Drawing.Point(22, 103);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 20);
+            this.label5.Size = new System.Drawing.Size(32, 15);
             this.label5.TabIndex = 6;
             this.label5.Text = "Total";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(342, 224);
+            this.label6.Location = new System.Drawing.Point(22, 149);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 20);
+            this.label6.Size = new System.Drawing.Size(50, 15);
             this.label6.TabIndex = 7;
             this.label6.Text = "Last day";
             // 
             // DateMzcr
             // 
             this.DateMzcr.AutoSize = true;
-            this.DateMzcr.Location = new System.Drawing.Point(420, 98);
+            this.DateMzcr.Location = new System.Drawing.Point(91, 55);
             this.DateMzcr.Name = "DateMzcr";
-            this.DateMzcr.Size = new System.Drawing.Size(49, 20);
+            this.DateMzcr.Size = new System.Drawing.Size(40, 15);
             this.DateMzcr.TabIndex = 8;
             this.DateMzcr.Text = "MZČR";
             // 
             // DateWho
             // 
             this.DateWho.AutoSize = true;
-            this.DateWho.Location = new System.Drawing.Point(553, 98);
+            this.DateWho.Location = new System.Drawing.Point(207, 55);
             this.DateWho.Name = "DateWho";
-            this.DateWho.Size = new System.Drawing.Size(49, 20);
+            this.DateWho.Size = new System.Drawing.Size(40, 15);
             this.DateWho.TabIndex = 9;
             this.DateWho.Text = "MZČR";
             // 
             // TotalMzcr
             // 
             this.TotalMzcr.AutoSize = true;
-            this.TotalMzcr.Location = new System.Drawing.Point(420, 163);
+            this.TotalMzcr.Location = new System.Drawing.Point(91, 103);
             this.TotalMzcr.Name = "TotalMzcr";
-            this.TotalMzcr.Size = new System.Drawing.Size(49, 20);
+            this.TotalMzcr.Size = new System.Drawing.Size(40, 15);
             this.TotalMzcr.TabIndex = 10;
             this.TotalMzcr.Text = "MZČR";
             // 
             // TotalWho
             // 
             this.TotalWho.AutoSize = true;
-            this.TotalWho.Location = new System.Drawing.Point(553, 163);
+            this.TotalWho.Location = new System.Drawing.Point(207, 103);
             this.TotalWho.Name = "TotalWho";
-            this.TotalWho.Size = new System.Drawing.Size(49, 20);
+            this.TotalWho.Size = new System.Drawing.Size(40, 15);
             this.TotalWho.TabIndex = 11;
             this.TotalWho.Text = "MZČR";
             // 
             // TotalDifference
             // 
             this.TotalDifference.AutoSize = true;
-            this.TotalDifference.Location = new System.Drawing.Point(671, 163);
+            this.TotalDifference.Location = new System.Drawing.Point(310, 103);
             this.TotalDifference.Name = "TotalDifference";
-            this.TotalDifference.Size = new System.Drawing.Size(49, 20);
+            this.TotalDifference.Size = new System.Drawing.Size(40, 15);
             this.TotalDifference.TabIndex = 12;
             this.TotalDifference.Text = "MZČR";
             // 
             // LastDayMzcr
             // 
             this.LastDayMzcr.AutoSize = true;
-            this.LastDayMzcr.Location = new System.Drawing.Point(420, 224);
+            this.LastDayMzcr.Location = new System.Drawing.Point(91, 149);
             this.LastDayMzcr.Name = "LastDayMzcr";
-            this.LastDayMzcr.Size = new System.Drawing.Size(49, 20);
+            this.LastDayMzcr.Size = new System.Drawing.Size(40, 15);
             this.LastDayMzcr.TabIndex = 13;
             this.LastDayMzcr.Text = "MZČR";
             // 
             // LastDayWho
             // 
             this.LastDayWho.AutoSize = true;
-            this.LastDayWho.Location = new System.Drawing.Point(553, 224);
+            this.LastDayWho.Location = new System.Drawing.Point(207, 149);
             this.LastDayWho.Name = "LastDayWho";
-            this.LastDayWho.Size = new System.Drawing.Size(49, 20);
+            this.LastDayWho.Size = new System.Drawing.Size(40, 15);
             this.LastDayWho.TabIndex = 14;
             this.LastDayWho.Text = "MZČR";
             // 
             // LastDayDifference
             // 
             this.LastDayDifference.AutoSize = true;
-            this.LastDayDifference.Location = new System.Drawing.Point(671, 224);
+            this.LastDayDifference.Location = new System.Drawing.Point(310, 149);
             this.LastDayDifference.Name = "LastDayDifference";
-            this.LastDayDifference.Size = new System.Drawing.Size(49, 20);
+            this.LastDayDifference.Size = new System.Drawing.Size(40, 15);
             this.LastDayDifference.TabIndex = 15;
             this.LastDayDifference.Text = "MZČR";
             // 
-            // button3
+            // panel1
             // 
-            this.button3.Location = new System.Drawing.Point(374, 335);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 29);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.panel1.BackColor = System.Drawing.Color.LightSlateGray;
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(170, 342);
+            this.panel1.TabIndex = 17;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.Controls.Add(this.LastDayDifference);
+            this.panel2.Controls.Add(this.LastDayWho);
+            this.panel2.Controls.Add(this.LastDayMzcr);
+            this.panel2.Controls.Add(this.TotalDifference);
+            this.panel2.Controls.Add(this.TotalWho);
+            this.panel2.Controls.Add(this.TotalMzcr);
+            this.panel2.Controls.Add(this.DateWho);
+            this.panel2.Controls.Add(this.DateMzcr);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Location = new System.Drawing.Point(201, 64);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(393, 209);
+            this.panel2.TabIndex = 18;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 451);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.LastDayDifference);
-            this.Controls.Add(this.LastDayWho);
-            this.Controls.Add(this.LastDayMzcr);
-            this.Controls.Add(this.TotalDifference);
-            this.Controls.Add(this.TotalWho);
-            this.Controls.Add(this.TotalMzcr);
-            this.Controls.Add(this.DateWho);
-            this.Controls.Add(this.DateMzcr);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ClientSize = new System.Drawing.Size(673, 342);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Difference";
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -250,7 +269,8 @@ namespace STIN
         public System.Windows.Forms.Label LastDayMzcr;
         public System.Windows.Forms.Label LastDayWho;
         public System.Windows.Forms.Label LastDayDifference;
-        public System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 
