@@ -32,6 +32,7 @@ namespace STIN
             this.button1 = new System.Windows.Forms.Button();
             this.testLabel = new System.Windows.Forms.Label();
             this.testButton = new System.Windows.Forms.Button();
+            this.refreshButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -63,11 +64,22 @@ namespace STIN
             this.testButton.UseVisualStyleBackColor = true;
             this.testButton.Click += new System.EventHandler(this.testButton_Click);
             // 
+            // refreshButton
+            // 
+            this.refreshButton.Location = new System.Drawing.Point(642, 65);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(94, 29);
+            this.refreshButton.TabIndex = 3;
+            this.refreshButton.Text = "Refresh";
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.testButton);
             this.Controls.Add(this.testLabel);
             this.Controls.Add(this.button1);
@@ -84,5 +96,6 @@ namespace STIN
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.Label testLabel;
         private System.Windows.Forms.Button testButton;
+        private System.Windows.Forms.Button refreshButton;
     }
 }

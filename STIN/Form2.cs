@@ -32,5 +32,10 @@ namespace STIN
         {
             testLabel.Text = Tools.ReadByState(GlobalVars.states[0])[0].ToString();
         }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            Tools.DownloadWho("who" + DateTime.Now.ToString().Substring(0, 10) + ".csv");
+        }
     }
 }

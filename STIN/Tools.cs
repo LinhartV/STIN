@@ -50,7 +50,7 @@ namespace STIN
                 GlobalVars.states.Add(parts[i].Split('|')[0]);
             }
         }
-        private static bool DownloadWho(string fileName)
+        public static bool DownloadWho(string fileName)
         {
 
             if (GlobalVars.whoFileNames.Count > 0 && fileName != GlobalVars.whoFileNames[GlobalVars.whoFileNames.Count - 1])
