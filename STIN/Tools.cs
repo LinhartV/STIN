@@ -11,24 +11,74 @@ using System.Linq;
 
 namespace STIN
 {
+    public class MyWebClient : WebClient
+    {
+        protected override WebRequest GetWebRequest(Uri address)
+        {
+            HttpWebRequest request = base.GetWebRequest(address) as HttpWebRequest;
+            request.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
+            return request;
+        }
+    }
     static class Tools
     {
         public static void FormTransfer(Form thisForm, Form thatForm)
         {
-            //ahoj
             thatForm.Location = thisForm.Location;
             thatForm.Show();
             thisForm.Hide();
-            //čau
         }
         public static void StartApp()
         {
-            //GlobalVars.form1.DateMzcr.Text = DateTime.Now.ToString().Substring(0,10);
+            GetStateNames();
             Repeat(() => Refresh(GlobalVars.who), 300000);
             Repeat(() => Refresh(GlobalVars.mzcr), 300000);
+            Repeat(() => DownloadWho(("who" + DateTime.Now.ToString().Substring(0, 10)) + ".csv"), 600000);
             Repeat(() => CheckNewDayAndTimeToRefresh(), 1000);
         }
-        private static void ReadCSVFile(Data data)
+        private static void GetStateNames()
+        {
+            //download the file for the first time
+            string fileName = "who" + DateTime.Now.ToString().Substring(0, 10) + ".csv";
+            DownloadWho(fileName);
+            //get names
+            string just = File.ReadAllText(fileName);
+            string[] parts = File.ReadAllText(fileName).Replace(',', '|').Replace("Bonaire| Sint Eustatius and Saba", "Bonaire, Sint Eustatius and Saba").Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+
+            for (int i = 1; i < parts.Length; i++)
+            {
+                GlobalVars.states.Add(parts[i].Split('|')[0]);
+            }
+        }
+        private static bool DownloadWho(string fileName)
+        {
+
+            if (GlobalVars.whoFileNames.Count > 0 && fileName != GlobalVars.whoFileNames[GlobalVars.whoFileNames.Count - 1])
+            {
+                using (var client = new WebClient())
+                {
+                    client.DownloadFile("https://covid19.who.int/who-data/vaccination-data.csv", "test" + fileName);
+                }
+                if (File.ReadAllText(GlobalVars.whoFileNames[GlobalVars.whoFileNames.Count - 1]) != File.ReadAllText("test" + fileName))
+                {
+                    File.Delete(GlobalVars.whoFileNames[GlobalVars.whoFileNames.Count - 1]);
+                    File.Move("test" + fileName, fileName);
+                    GlobalVars.whoFileNames[GlobalVars.whoFileNames.Count - 1] = fileName;
+                }
+            }
+            else
+            {
+                using (var client = new MyWebClient())
+                {
+                    client.DownloadFile("https://covid19.who.int/who-data/vaccination-data.csv", fileName);
+                    GlobalVars.whoFileNames.Add(fileName);
+                }
+            }
+            return true;
+
+        }
+
+        private static void ReadCSVFileByCell(Data data)
         {
             //download the file... pretty clear, ain't it
             using (var client = new WebClient())
@@ -45,7 +95,7 @@ namespace STIN
                     if (data.totalCases.Count == 0 || value != data.totalCases[data.totalCases.Count - 1])
                     {
                         data.isUpToDate = true;
-                        if (data.totalCases.Count == 1)//get the 
+                        if (data.totalCases.Count == 1)//get the time to refresh
                         {
                             data.timeToUpdate = DateTime.Now.ToString().Substring(11);
                         }
@@ -58,7 +108,7 @@ namespace STIN
         }
 
 
-        private static async Task Repeat(Func<bool> action, int millisDelay) //takes in a method to repeat. If the method returns false, it will stop repeating
+        private static async Task Repeat(Func<bool> action, int millisDelay) //takes in a method to repeat. If the method returns false, repeating will cease
         {
             while (true)
             {
@@ -67,9 +117,29 @@ namespace STIN
                 await Task.Delay(millisDelay);
             }
         }
+        public static List<double> ReadByState(string state)
+        {
+            string[] states;
+            string[] stateInfo;
+            List<double> output = new List<double>();
+            for (int i = 0; i < GlobalVars.whoFileNames.Count; i++)
+            {
+                states = File.ReadAllText(GlobalVars.whoFileNames[i]).Replace(',', '|').Replace("Bonaire| Sint Eustatius and Saba", "Bonaire, Sint Eustatius and Saba").Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+                for (int j = 0; j < states.Length; j++)
+                {
+                    stateInfo = states[j].Split('|');
+                    if (state == stateInfo[0])
+                    {
+                        output.Add(Convert.ToDouble(stateInfo[7].Replace('.',',')));
+                        break;
+                    }
+                }
+            }
+            return output;
+        }
         public static bool Refresh(Data data)
         {
-            ReadCSVFile(data);
+            ReadCSVFileByCell(data);
             if (data.lastRefresh.ToString().Substring(0, 10) != DateTime.Now.ToString().Substring(0, 10))
             {
                 data.isUpToDate = false;
@@ -96,7 +166,7 @@ namespace STIN
                 GlobalVars.who.isUpToDate = false;
                 VisualizeActualization(GlobalVars.who);
                 VisualizeActualization(GlobalVars.mzcr);
-                if(GlobalVars.who.timeToUpdate == "")
+                if (GlobalVars.who.timeToUpdate == "")
                 {
                     Repeat(() => Refresh(GlobalVars.who), 300000);
                 }
@@ -127,7 +197,7 @@ namespace STIN
                 GlobalVars.form1.TotalWho.Text = data.totalCases[data.totalCases.Count - 1].ToString();
                 if (data.totalCases.Count > 1)
                     GlobalVars.form1.LastDayWho.Text = (data.totalCases[data.totalCases.Count - 1] - data.totalCases[data.totalCases.Count - 2]).ToString();
-                GlobalVars.form1.DateWho.Text = data.lastRefresh.ToString().Substring(0,10);
+                GlobalVars.form1.DateWho.Text = data.lastRefresh.ToString().Substring(0, 10);
                 if (data.isUpToDate)
                     GlobalVars.form1.label1.ForeColor = System.Drawing.Color.Green;
                 else
