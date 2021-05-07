@@ -22,6 +22,7 @@ namespace STIN
             if (GlobalVars.form2 == null)
                 GlobalVars.form2 = new Form2();
             Tools.StartApp();
+            GlobalVars.form1.set_upToDate_label();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,9 +45,23 @@ namespace STIN
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void set_upToDate_label()
         {
-
+            if (GlobalVars.who.isUpToDate && GlobalVars.mzcr.isUpToDate)
+            {
+                GlobalVars.form1.info_label.BackColor = Color.MediumSpringGreen;
+                GlobalVars.form1.info_label.Text = "WHO data are UpToDate\nMZCR data are UpToDate";
+            }
+            else
+            {
+                GlobalVars.form1.info_label.BackColor = Color.Crimson;
+                if (!GlobalVars.who.isUpToDate && GlobalVars.mzcr.isUpToDate)
+                    GlobalVars.form1.info_label.Text = "WHO data are NOT UpToDate\nMZCR data are UpToDate";
+                else if (!GlobalVars.mzcr.isUpToDate && GlobalVars.who.isUpToDate)
+                    GlobalVars.form1.info_label.Text = "WHO data are UpToDate\nMZCR data are NOT UpToDate";
+                else
+                    GlobalVars.form1.info_label.Text = "WHO data are NOT UpToDate\nMZCR data are NOT UpToDate";
+            }
         }
     }
 }
