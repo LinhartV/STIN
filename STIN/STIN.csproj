@@ -4,10 +4,15 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="FileHelpers" Version="3.4.2" />
+    <PackageReference Include="LiveCharts.WinForms.NetCore3" Version="0.9.7" />
   </ItemGroup>
 
   <ItemGroup>

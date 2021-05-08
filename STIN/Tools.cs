@@ -1,13 +1,9 @@
-﻿using FileHelpers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Linq;
 
 namespace STIN
 {
@@ -40,6 +36,11 @@ namespace STIN
         {
             //download the file for the first time
             string fileName = "who" + DateTime.Now.ToString().Substring(0, 10) + ".csv";
+        //Khai - existing directory
+            string new_dir = Directory.GetCurrentDirectory() + "\\who" + DateTime.Now.ToString().Substring(0, 10);
+            bool dir_exists = System.IO.Directory.Exists(new_dir);
+            if (!dir_exists)
+                System.IO.Directory.CreateDirectory(new_dir);
             DownloadWho(fileName);
             //get names
             string just = File.ReadAllText(fileName);
