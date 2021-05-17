@@ -47,7 +47,13 @@ namespace STIN
             Tools.DownloadWho("who" + DateTime.Now.ToString().Substring(0, 10) + ".csv");
             
             DrawStateName("Anglie");
+            DrawBar(50);
 
+        }
+        private void DrawBar(int value)
+        {
+            g.FillRectangle(new SolidBrush(Color.Blue), 20, bmp.Height - value, 20, value);
+            pictureBox1.Image = bmp;
         }
         private void DrawSetup()
         {
