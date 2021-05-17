@@ -15,11 +15,16 @@ namespace STIN
 {
     public partial class Form2 : Form
     {
+        Graphics g;
+        Bitmap bmp;
         public Form2()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.Manual;
             barGraph_chart();
+            bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            g = Graphics.FromImage(bmp);
+            DrawSetup();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,6 +45,20 @@ namespace STIN
         private void refreshButton_Click(object sender, EventArgs e)
         {
             Tools.DownloadWho("who" + DateTime.Now.ToString().Substring(0, 10) + ".csv");
+            
+            DrawStateName("Anglie");
+
+        }
+        private void DrawSetup()
+        {
+            g.FillRectangle(new SolidBrush(Color.White), 0, 0, bmp.Width, bmp.Height);
+            pictureBox1.Image = bmp;
+        }
+
+        private void DrawStateName(string name)
+        {
+            g.DrawString(name, new Font("Arial", 16), new SolidBrush(Color.Black), 10, 10);
+            pictureBox1.Image = bmp;
         }
 
         public void barGraph_chart()
@@ -57,5 +76,7 @@ namespace STIN
                 }
             };
         }
+
+
     }
 }
