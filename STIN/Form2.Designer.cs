@@ -117,7 +117,7 @@ namespace STIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(958, 485);
+            this.ClientSize = new System.Drawing.Size(905, 485);
             this.Controls.Add(this.chart_1);
             this.Controls.Add(this.cbox_state_4);
             this.Controls.Add(this.cbox_state_5);
