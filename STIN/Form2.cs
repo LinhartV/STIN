@@ -10,16 +10,43 @@ using LiveCharts;
 using System.Windows.Forms;
 using LiveCharts.Wpf;
 using LiveCharts.Defaults;
+using LiveCharts.Configurations;
+using STIN.Properties;
 
 namespace STIN
 {
     public partial class Form2 : Form
     {
+        public string[] cbox_states { get; set; }
+        public string[] Labels { get; set; }
         public Form2()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.Manual;
-            barGraph_chart();
+
+            chart_1.AxisX.Add(new Axis
+            {
+                Labels = new[] { "Czechia",
+                    Settings.Default["cbox_ld_2"].ToString(),
+                    Settings.Default["cbox_ld_3"].ToString(),
+                    Settings.Default["cbox_ld_4"].ToString(),
+                    Settings.Default["cbox_ld_5"].ToString() },
+                Separator = new Separator { Step = 1 }
+            });
+            chart_1.AxisY.Add(new Axis
+            {
+                Title = "Vaccinated people",
+                LabelFormatter = value => value.ToString("N")
+            });
+            Form2 DataContext = this;
+
+        }
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            cbox_state_2.Text = Settings.Default["cbox_ld_2"].ToString();
+            cbox_state_3.Text = Settings.Default["cbox_ld_3"].ToString();
+            cbox_state_4.Text = Settings.Default["cbox_ld_4"].ToString();
+            cbox_state_5.Text = Settings.Default["cbox_ld_5"].ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -34,7 +61,13 @@ namespace STIN
 
         private void testButton_Click(object sender, EventArgs e)
         {
-            testLabel.Text = Tools.ReadByState(GlobalVars.states[0])[0].ToString();
+            cbox_states = new[] { "Czechia",
+                cbox_state_2.SelectedItem.ToString(),
+                cbox_state_3.SelectedItem.ToString(),
+                cbox_state_4.SelectedItem.ToString(),
+                cbox_state_5.SelectedItem.ToString()
+            };
+            barGraph_chart(cbox_states);
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
@@ -42,20 +75,66 @@ namespace STIN
             Tools.DownloadWho("who" + DateTime.Now.ToString().Substring(0, 10) + ".csv");
         }
 
-        public void barGraph_chart()
+        public void barGraph_chart(string[] cbox_states)
         {
-            chart_1.Series = new SeriesCollecion
+            List<List<double>> five_states = new List<List<double>>();
+            for (int i = 0; i < 5; i++)
+                five_states.Add(Tools.ReadByState(cbox_states[i]));
+
+            double[] latest_data = new double[5];
+            double[] day_before = new double[5];
+            for (int i = 0; i < 5; i++)
             {
-                new ColumnSeries
+                latest_data[i] = five_states[i].Last();
+                day_before[i] = five_states[i][^2];
+                if (i != 0)
+                    chart_1.AxisX[0].Labels[i] = cbox_states[i];
+            }
+
+            Settings.Default["cbox_ld_2"] = cbox_states[1];
+            Settings.Default["cbox_ld_3"] = cbox_states[2];
+            Settings.Default["cbox_ld_4"] = cbox_states[3];
+            Settings.Default["cbox_ld_5"] = cbox_states[4];
+            Settings.Default.Save();
+
+            chart_1.Series = new LiveCharts.SeriesCollecion
+            {
+                new StackedColumnSeries()
                 {
-                    Values = new ChartValues<ObservableValue>
-                    {
-                      new ObservableValue(4),
-                      new ObservableValue(2)
-                      // ...
-                    }
+                    Title = "latest day",
+                    Values = new ChartValues<double> { latest_data[0],
+                        latest_data[1], latest_data[2],
+                        latest_data[3], latest_data[3]
+                    },
+                    DataLabels = true
+                },
+                new StackedColumnSeries()
+                {
+                    Title = "previous day",
+                    Values = new ChartValues<double> {
+                        100000 - day_before[0],
+                        100000 - day_before[1],
+                        200000 - day_before[2],
+                        100000 - day_before[3],
+                        200000 - day_before[4]
+                    },
+                    StackMode = StackMode.Values,
+                    DataLabels = true
                 }
             };
         }
+
+        public void load_list_combobox()
+        {
+            List<String> arr_states = GlobalVars.states;
+            arr_states.Sort();
+
+            cbox_state_2.Items.AddRange(arr_states.ToArray());
+            cbox_state_3.Items.AddRange(arr_states.ToArray());
+            cbox_state_4.Items.AddRange(arr_states.ToArray());
+            cbox_state_5.Items.AddRange(arr_states.ToArray());
+        }
+
+
     }
 }

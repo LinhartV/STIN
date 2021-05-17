@@ -27,6 +27,7 @@ namespace STIN
         public static void StartApp()
         {
             GetStateNames();
+            GlobalVars.form2.load_list_combobox();
             Repeat(() => Refresh(GlobalVars.who), 300000);
             Repeat(() => Refresh(GlobalVars.mzcr), 300000);
             Repeat(() => DownloadWho(("who" + DateTime.Now.ToString().Substring(0, 10)) + ".csv"), 600000);

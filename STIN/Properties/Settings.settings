@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="STIN.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="cbox_ld_2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Poland</Value>
+    </Setting>
+    <Setting Name="cbox_ld_3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Ecuador</Value>
+    </Setting>
+    <Setting Name="cbox_ld_4" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Denmark</Value>
+    </Setting>
+    <Setting Name="cbox_ld_5" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Finland</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

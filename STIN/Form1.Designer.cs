@@ -236,7 +236,7 @@ namespace STIN
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(736, 479);
+            this.ClientSize = new System.Drawing.Size(726, 471);
             this.Controls.Add(this.info_label);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panel2);
