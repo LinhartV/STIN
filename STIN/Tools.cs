@@ -126,7 +126,7 @@ namespace STIN
                             if(!GlobalVars.dates.ContainsKey(DateTime.Now.ToString().Substring(0, 10)))
                                 GlobalVars.dates.Add(DateTime.Now.ToString().Substring(0, 10), GlobalVars.dates.Count);
                             data.lastRefresh = DateTime.Now;
-                            VisualizeActualization(data, data.totalCases.Count-1);
+                            VisualizeActualization(data.totalCases.Count-1);
                         }
                     }
                 }
@@ -206,8 +206,7 @@ namespace STIN
                 {
                     GlobalVars.mzcr.isUpToDate = false;
                     GlobalVars.who.isUpToDate = false;
-                    VisualizeActualization(GlobalVars.who, GlobalVars.who.totalCases.Count);
-                    VisualizeActualization(GlobalVars.mzcr, GlobalVars.mzcr.totalCases.Count);
+                    VisualizeActualization(GlobalVars.who.totalCases.Count);
                     if (GlobalVars.who.timeToUpdate == "")
                     {
                         Repeat(() => Refresh(GlobalVars.who), 300000);
@@ -226,26 +225,26 @@ namespace STIN
             return true;
         }
 
-        private static void VisualizeActualization(Data data, int dayNum)
+        private static void VisualizeActualization(int dayNum)
         {
-            if (data == GlobalVars.mzcr)
+            if (GlobalVars.mzcr.totalCases.ContainsKey(dayNum))
             {
-                GlobalVars.form1.TotalMzcr.Text = data.totalCases[dayNum].ToString();
-                if (data.totalCases.Count > 1)
-                    GlobalVars.form1.LastDayMzcr.Text = (data.totalCases[dayNum] - data.totalCases[dayNum]).ToString();
-                GlobalVars.form1.DateMzcr.Text = data.lastRefresh.ToString().Substring(0, 10);
-                if (data.isUpToDate)
+                GlobalVars.form1.TotalMzcr.Text = GlobalVars.mzcr.totalCases[dayNum].ToString();
+                if (GlobalVars.mzcr.totalCases.Count > 1)
+                    GlobalVars.form1.LastDayMzcr.Text = (GlobalVars.mzcr.totalCases[dayNum] - GlobalVars.mzcr.totalCases[dayNum]).ToString();
+                GlobalVars.form1.DateMzcr.Text = GlobalVars.mzcr.lastRefresh.ToString().Substring(0, 10);
+                if (GlobalVars.mzcr.isUpToDate)
                     GlobalVars.form1.label2.ForeColor = System.Drawing.Color.Green;
                 else
                     GlobalVars.form1.label2.ForeColor = System.Drawing.Color.Red;
             }
-            else if (data == GlobalVars.who)
+            if (GlobalVars.who.totalCases.ContainsKey(dayNum))
             {
-                GlobalVars.form1.TotalWho.Text = data.totalCases[dayNum].ToString();
-                if (data.totalCases.Count > 1)
-                    GlobalVars.form1.LastDayWho.Text = (data.totalCases[dayNum] - data.totalCases[data.totalCases.Count - 2]).ToString();
-                GlobalVars.form1.DateWho.Text = data.lastRefresh.ToString().Substring(0, 10);
-                if (data.isUpToDate)
+                GlobalVars.form1.TotalWho.Text = GlobalVars.who.totalCases[dayNum].ToString();
+                if (GlobalVars.who.totalCases.Count > 1)
+                    GlobalVars.form1.LastDayWho.Text = (GlobalVars.who.totalCases[dayNum] - GlobalVars.who.totalCases[GlobalVars.who.totalCases.Count - 2]).ToString();
+                GlobalVars.form1.DateWho.Text = GlobalVars.who.lastRefresh.ToString().Substring(0, 10);
+                if (GlobalVars.who.isUpToDate)
                     GlobalVars.form1.label1.ForeColor = System.Drawing.Color.Green;
                 else
                     GlobalVars.form1.label1.ForeColor = System.Drawing.Color.Red;
@@ -253,7 +252,7 @@ namespace STIN
             if (GlobalVars.mzcr.isUpToDate && GlobalVars.who.isUpToDate)
             {
                 GlobalVars.form1.TotalDifference.Text = (Math.Abs(GlobalVars.who.totalCases[dayNum] - GlobalVars.mzcr.totalCases[dayNum])).ToString();
-                if (data.totalCases.Count > 1)
+                if (GlobalVars.who.totalCases.Count > 1)
                     GlobalVars.form1.LastDayDifference.Text = Math.Abs((GlobalVars.who.totalCases[dayNum] - GlobalVars.who.totalCases[dayNum - 1]) - (GlobalVars.mzcr.totalCases[dayNum] - GlobalVars.mzcr.totalCases[dayNum - 1])).ToString();
             }
         }
