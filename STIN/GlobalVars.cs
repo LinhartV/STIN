@@ -14,5 +14,6 @@ namespace STIN
         public static Data mzcr = new Data("https://onemocneni-aktualne.mzcr.cz/api/v2/covid-19/zakladni-prehled.csv", "mzcr.csv", 1, 1);
         public static List<string> states = new List<string>();
         public static List<string> whoFileNames = new List<string>();
+        public static Dictionary<string, int> dates = new Dictionary<string, int>();
     }
 }

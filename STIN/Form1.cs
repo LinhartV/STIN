@@ -36,12 +36,14 @@ namespace STIN
             {
                 Tools.Refresh(GlobalVars.who);
                 Tools.Refresh(GlobalVars.mzcr);
-
-                MessageBox.Show("Downloaded");
             }
-            catch(WebException ex)
+            catch (WebException ex)
             {
-                MessageBox.Show(ex.Message);
+                Tools.WriteErrorToLog(ex);
+            }
+            catch (Exception ex)
+            {
+                Tools.WriteErrorToLog(ex);
             }
         }
 

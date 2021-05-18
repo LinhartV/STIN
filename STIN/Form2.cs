@@ -77,27 +77,29 @@ namespace STIN
 
         public void barGraph_chart(string[] cbox_states)
         {
-            List<List<double>> five_states = new List<List<double>>();
-            for (int i = 0; i < 5; i++)
-                five_states.Add(Tools.ReadByState(cbox_states[i]));
-
-            double[] latest_data = new double[5];
-            double[] day_before = new double[5];
-            for (int i = 0; i < 5; i++)
+            try
             {
-                latest_data[i] = five_states[i].Last();
-                day_before[i] = five_states[i][^2];
-                if (i != 0)
-                    chart_1.AxisX[0].Labels[i] = cbox_states[i];
-            }
+                List<List<double>> five_states = new List<List<double>>();
+                for (int i = 0; i < 5; i++)
+                    five_states.Add(Tools.ReadByState(cbox_states[i]));
 
-            Settings.Default["cbox_ld_2"] = cbox_states[1];
-            Settings.Default["cbox_ld_3"] = cbox_states[2];
-            Settings.Default["cbox_ld_4"] = cbox_states[3];
-            Settings.Default["cbox_ld_5"] = cbox_states[4];
-            Settings.Default.Save();
+                double[] latest_data = new double[5];
+                double[] day_before = new double[5];
+                for (int i = 0; i < 5; i++)
+                {
+                    latest_data[i] = five_states[i].Last();
+                    day_before[i] = five_states[i][^2];
+                    if (i != 0)
+                        chart_1.AxisX[0].Labels[i] = cbox_states[i];
+                }
 
-            chart_1.Series = new LiveCharts.SeriesCollecion
+                Settings.Default["cbox_ld_2"] = cbox_states[1];
+                Settings.Default["cbox_ld_3"] = cbox_states[2];
+                Settings.Default["cbox_ld_4"] = cbox_states[3];
+                Settings.Default["cbox_ld_5"] = cbox_states[4];
+                Settings.Default.Save();
+
+                chart_1.Series = new LiveCharts.SeriesCollecion
             {
                 new StackedColumnSeries()
                 {
@@ -122,6 +124,11 @@ namespace STIN
                     DataLabels = true
                 }
             };
+            }
+            catch(Exception e)
+            {
+                Tools.WriteErrorToLog(e);
+            }
         }
 
         public void load_list_combobox()

@@ -8,7 +8,7 @@ namespace STIN
 {
     class Data
     {
-        public List<int> totalCases = new List<int>();
+        public Dictionary<int, int> totalCases = new Dictionary<int, int>();
         public bool isUpToDate;
         public string timeToUpdate = "";
         public string url;
