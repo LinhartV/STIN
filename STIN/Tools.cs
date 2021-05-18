@@ -115,7 +115,7 @@ namespace STIN
                     {
                         string[] parts = sr.ReadToEnd().Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
                         int value = Convert.ToInt32(parts[data.row].Split(',')[data.col]);
-                        if (data.totalCases.Count == 0 || value != data.totalCases[data.totalCases.Count])
+                        if (data.totalCases.Count == 0 || value != data.totalCases[data.totalCases.Count-1])
                         {
                             data.isUpToDate = true;
                             if (data.totalCases.Count == 1)//get the time to refresh
@@ -123,9 +123,10 @@ namespace STIN
                                 data.timeToUpdate = DateTime.Now.ToString().Substring(11);
                             }
                             data.totalCases.Add(data.totalCases.Count, value);
-                            GlobalVars.dates.Add(DateTime.Now.ToString().Substring(0, 10), GlobalVars.dates.Count);
+                            if(!GlobalVars.dates.ContainsKey(DateTime.Now.ToString().Substring(0, 10)))
+                                GlobalVars.dates.Add(DateTime.Now.ToString().Substring(0, 10), GlobalVars.dates.Count);
                             data.lastRefresh = DateTime.Now;
-                            VisualizeActualization(data, data.totalCases.Count);
+                            VisualizeActualization(data, data.totalCases.Count-1);
                         }
                     }
                 }
