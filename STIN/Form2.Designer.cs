@@ -41,18 +41,18 @@ namespace STIN
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(715, 348);
+            this.button1.Location = new System.Drawing.Point(520, 85);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(149, 50);
             this.button1.TabIndex = 0;
-            this.button1.Text = "return";
+            this.button1.Text = "Return";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // testButton
             // 
-            this.testButton.Location = new System.Drawing.Point(519, 348);
+            this.testButton.Location = new System.Drawing.Point(520, 338);
             this.testButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.testButton.Name = "testButton";
             this.testButton.Size = new System.Drawing.Size(149, 50);
@@ -63,7 +63,7 @@ namespace STIN
             // 
             // refreshButton
             // 
-            this.refreshButton.Location = new System.Drawing.Point(715, 268);
+            this.refreshButton.Location = new System.Drawing.Point(520, 31);
             this.refreshButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.Size = new System.Drawing.Size(149, 50);
@@ -75,7 +75,7 @@ namespace STIN
             // cbox_state_3
             // 
             this.cbox_state_3.FormattingEnabled = true;
-            this.cbox_state_3.Location = new System.Drawing.Point(519, 201);
+            this.cbox_state_3.Location = new System.Drawing.Point(520, 212);
             this.cbox_state_3.Name = "cbox_state_3";
             this.cbox_state_3.Size = new System.Drawing.Size(149, 23);
             this.cbox_state_3.TabIndex = 4;
@@ -83,7 +83,7 @@ namespace STIN
             // cbox_state_2
             // 
             this.cbox_state_2.FormattingEnabled = true;
-            this.cbox_state_2.Location = new System.Drawing.Point(519, 154);
+            this.cbox_state_2.Location = new System.Drawing.Point(520, 170);
             this.cbox_state_2.Name = "cbox_state_2";
             this.cbox_state_2.Size = new System.Drawing.Size(149, 23);
             this.cbox_state_2.TabIndex = 5;
@@ -91,7 +91,7 @@ namespace STIN
             // cbox_state_5
             // 
             this.cbox_state_5.FormattingEnabled = true;
-            this.cbox_state_5.Location = new System.Drawing.Point(519, 295);
+            this.cbox_state_5.Location = new System.Drawing.Point(520, 296);
             this.cbox_state_5.Name = "cbox_state_5";
             this.cbox_state_5.Size = new System.Drawing.Size(149, 23);
             this.cbox_state_5.TabIndex = 6;
@@ -99,7 +99,7 @@ namespace STIN
             // cbox_state_4
             // 
             this.cbox_state_4.FormattingEnabled = true;
-            this.cbox_state_4.Location = new System.Drawing.Point(519, 250);
+            this.cbox_state_4.Location = new System.Drawing.Point(520, 255);
             this.cbox_state_4.Name = "cbox_state_4";
             this.cbox_state_4.Size = new System.Drawing.Size(149, 23);
             this.cbox_state_4.TabIndex = 7;
@@ -107,9 +107,9 @@ namespace STIN
             // chart_1
             // 
             this.chart_1.BackColor = System.Drawing.SystemColors.Window;
-            this.chart_1.Location = new System.Drawing.Point(29, 113);
+            this.chart_1.Location = new System.Drawing.Point(24, 31);
             this.chart_1.Name = "chart_1";
-            this.chart_1.Size = new System.Drawing.Size(455, 285);
+            this.chart_1.Size = new System.Drawing.Size(454, 357);
             this.chart_1.TabIndex = 8;
             this.chart_1.Text = "cartesianChart1";
             // 
@@ -117,7 +117,8 @@ namespace STIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(905, 485);
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ClientSize = new System.Drawing.Size(689, 413);
             this.Controls.Add(this.chart_1);
             this.Controls.Add(this.cbox_state_4);
             this.Controls.Add(this.cbox_state_5);
