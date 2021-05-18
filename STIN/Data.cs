@@ -9,7 +9,7 @@ namespace STIN
     class Data
     {
         public Dictionary<int, int> totalCases = new Dictionary<int, int>();
-        public bool isUpToDate;
+        public bool isUpToDate = false;
         public string timeToUpdate = "";
         public string url;
         public int row;

@@ -21,7 +21,6 @@ namespace STIN
         public static void WriteErrorToLog(Exception e)
         {
             File.AppendAllText("Log.txt", DateTime.Now.ToString() + "\n" + e.Message + "\n\n");
-            MessageBox.Show("Something went wrong, see log for more information", "Are you kidding me?");
         }
         public static void FormTransfer(Form thisForm, Form thatForm)
         {
@@ -202,7 +201,7 @@ namespace STIN
                 {
                     Repeat(() => Refresh(GlobalVars.mzcr), 300000);
                 }
-                if (DateTime.Now.ToString().EndsWith("00:00:00"))
+                if (DateTime.Now.ToString().EndsWith("0:11:00"))
                 {
                     GlobalVars.mzcr.isUpToDate = false;
                     GlobalVars.who.isUpToDate = false;
@@ -225,7 +224,7 @@ namespace STIN
             return true;
         }
 
-        private static void VisualizeActualization(int dayNum)
+        public static void VisualizeActualization(int dayNum)
         {
             if (GlobalVars.mzcr.totalCases.ContainsKey(dayNum))
             {
@@ -233,28 +232,31 @@ namespace STIN
                 if (GlobalVars.mzcr.totalCases.Count > 1)
                     GlobalVars.form1.LastDayMzcr.Text = (GlobalVars.mzcr.totalCases[dayNum] - GlobalVars.mzcr.totalCases[dayNum]).ToString();
                 GlobalVars.form1.DateMzcr.Text = GlobalVars.mzcr.lastRefresh.ToString().Substring(0, 10);
-                if (GlobalVars.mzcr.isUpToDate)
-                    GlobalVars.form1.label2.ForeColor = System.Drawing.Color.Green;
-                else
-                    GlobalVars.form1.label2.ForeColor = System.Drawing.Color.Red;
+                
             }
+            if (GlobalVars.mzcr.isUpToDate)
+                GlobalVars.form1.label2.ForeColor = System.Drawing.Color.Green;
+            else
+                GlobalVars.form1.label2.ForeColor = System.Drawing.Color.Red;
             if (GlobalVars.who.totalCases.ContainsKey(dayNum))
             {
                 GlobalVars.form1.TotalWho.Text = GlobalVars.who.totalCases[dayNum].ToString();
                 if (GlobalVars.who.totalCases.Count > 1)
                     GlobalVars.form1.LastDayWho.Text = (GlobalVars.who.totalCases[dayNum] - GlobalVars.who.totalCases[GlobalVars.who.totalCases.Count - 2]).ToString();
                 GlobalVars.form1.DateWho.Text = GlobalVars.who.lastRefresh.ToString().Substring(0, 10);
-                if (GlobalVars.who.isUpToDate)
-                    GlobalVars.form1.label1.ForeColor = System.Drawing.Color.Green;
-                else
-                    GlobalVars.form1.label1.ForeColor = System.Drawing.Color.Red;
+                
             }
+            if (GlobalVars.who.isUpToDate)
+                GlobalVars.form1.label1.ForeColor = System.Drawing.Color.Green;
+            else
+                GlobalVars.form1.label1.ForeColor = System.Drawing.Color.Red;
             if (GlobalVars.mzcr.isUpToDate && GlobalVars.who.isUpToDate)
             {
                 GlobalVars.form1.TotalDifference.Text = (Math.Abs(GlobalVars.who.totalCases[dayNum] - GlobalVars.mzcr.totalCases[dayNum])).ToString();
                 if (GlobalVars.who.totalCases.Count > 1)
                     GlobalVars.form1.LastDayDifference.Text = Math.Abs((GlobalVars.who.totalCases[dayNum] - GlobalVars.who.totalCases[dayNum - 1]) - (GlobalVars.mzcr.totalCases[dayNum] - GlobalVars.mzcr.totalCases[dayNum - 1])).ToString();
             }
+            GlobalVars.form1.set_upToDate_label();
         }
     }
 }

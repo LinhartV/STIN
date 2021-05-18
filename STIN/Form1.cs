@@ -23,6 +23,7 @@ namespace STIN
                 GlobalVars.form2 = new Form2();
             Tools.StartApp();
             GlobalVars.form1.set_upToDate_label();
+            Tools.VisualizeActualization(0);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -47,7 +48,7 @@ namespace STIN
             }
         }
 
-        private void set_upToDate_label()
+        public void set_upToDate_label()
         {
             if (GlobalVars.who.isUpToDate && GlobalVars.mzcr.isUpToDate)
             {
