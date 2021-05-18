@@ -114,11 +114,11 @@ namespace STIN
                 {
                     Title = "previous day",
                     Values = new ChartValues<double> {
-                        100000 - day_before[0],
-                        100000 - day_before[1],
-                        200000 - day_before[2],
-                        100000 - day_before[3],
-                        200000 - day_before[4]
+                        latest_data[0] - day_before[0],
+                        latest_data[1] - day_before[1],
+                        latest_data[2] - day_before[2],
+                        latest_data[3] - day_before[3],
+                        latest_data[4] - day_before[4]
                     },
                     StackMode = StackMode.Values,
                     DataLabels = true

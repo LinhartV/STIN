@@ -22,7 +22,10 @@ namespace STIN
             if (GlobalVars.form2 == null)
                 GlobalVars.form2 = new Form2();
             Tools.StartApp();
-            GlobalVars.form1.set_upToDate_label();
+            set_upToDate_label();
+            set_cbox_select_day();
+            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -64,6 +67,23 @@ namespace STIN
                 else
                     GlobalVars.form1.info_label.Text = "WHO data are NOT UpToDate\nMZCR data are NOT UpToDate";
             }
+        }
+
+        public void set_cbox_select_day()
+        {
+            foreach (string day in GlobalVars.dates.Keys)
+            {
+                cbox_select_day.Items.Add(day);
+            }
+            //GlobalVars.form1.cbox_select_day.Items.Add();
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selected_day = cbox_select_day.SelectedItem.ToString();
+            Tools.VisualizeActualization(GlobalVars.dates[selected_day]);
+
         }
     }
 }

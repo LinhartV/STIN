@@ -47,15 +47,17 @@ namespace STIN
             this.LastDayDifference = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.info_label = new System.Windows.Forms.Label();
+            this.cbox_select_day = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(434, 28);
+            this.button1.Location = new System.Drawing.Point(421, 226);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(142, 85);
+            this.button1.Size = new System.Drawing.Size(130, 91);
             this.button1.TabIndex = 0;
             this.button1.Text = "Second page";
             this.button1.UseVisualStyleBackColor = true;
@@ -63,10 +65,10 @@ namespace STIN
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(434, 140);
+            this.button2.Location = new System.Drawing.Point(422, 115);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(142, 85);
+            this.button2.Size = new System.Drawing.Size(130, 97);
             this.button2.TabIndex = 1;
             this.button2.Text = "Refresh";
             this.button2.UseVisualStyleBackColor = true;
@@ -215,7 +217,7 @@ namespace STIN
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(13, 140);
+            this.panel2.Location = new System.Drawing.Point(16, 115);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(392, 199);
             this.panel2.TabIndex = 18;
@@ -224,19 +226,39 @@ namespace STIN
             // 
             this.info_label.BackColor = System.Drawing.Color.Crimson;
             this.info_label.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.info_label.Location = new System.Drawing.Point(12, 28);
+            this.info_label.Location = new System.Drawing.Point(15, 16);
             this.info_label.Name = "info_label";
             this.info_label.Size = new System.Drawing.Size(393, 85);
             this.info_label.TabIndex = 19;
             this.info_label.Text = "Data informations";
             this.info_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // cbox_select_day
+            // 
+            this.cbox_select_day.FormattingEnabled = true;
+            this.cbox_select_day.Location = new System.Drawing.Point(422, 33);
+            this.cbox_select_day.Name = "cbox_select_day";
+            this.cbox_select_day.Size = new System.Drawing.Size(129, 23);
+            this.cbox_select_day.TabIndex = 20;
+            this.cbox_select_day.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(422, 15);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(51, 15);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Pick day";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(726, 471);
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ClientSize = new System.Drawing.Size(571, 332);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.cbox_select_day);
             this.Controls.Add(this.info_label);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panel2);
@@ -248,6 +270,7 @@ namespace STIN
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -271,6 +294,8 @@ namespace STIN
         public System.Windows.Forms.Label LastDayDifference;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label info_label;
+        public System.Windows.Forms.ComboBox cbox_select_day;
+        private System.Windows.Forms.Label label7;
     }
 }
 
