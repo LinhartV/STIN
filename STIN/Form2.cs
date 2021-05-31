@@ -43,6 +43,7 @@ namespace STIN
         }
         private void Form2_Load(object sender, EventArgs e)
         {
+            load_list_combobox();
             cbox_state_2.Text = Settings.Default["cbox_ld_2"].ToString();
             cbox_state_3.Text = Settings.Default["cbox_ld_3"].ToString();
             cbox_state_4.Text = Settings.Default["cbox_ld_4"].ToString();
@@ -59,7 +60,7 @@ namespace STIN
             GlobalVars.form1.Close();
         }
 
-        private void testButton_Click(object sender, EventArgs e)
+        private void loadData_Click(object sender, EventArgs e)
         {
             cbox_states = new[] { "Czechia",
                 cbox_state_2.SelectedItem.ToString(),
@@ -125,7 +126,7 @@ namespace STIN
                 }
             };
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Tools.WriteErrorToLog(e);
             }
@@ -135,6 +136,10 @@ namespace STIN
         {
             List<String> arr_states = GlobalVars.states;
             arr_states.Sort();
+            cbox_state_2.Items.Clear();
+            cbox_state_3.Items.Clear();
+            cbox_state_4.Items.Clear();
+            cbox_state_5.Items.Clear();
 
             cbox_state_2.Items.AddRange(arr_states.ToArray());
             cbox_state_3.Items.AddRange(arr_states.ToArray());

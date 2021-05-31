@@ -75,7 +75,8 @@ namespace STIN
         {
             foreach (string day in GlobalVars.dates.Keys)
             {
-                cbox_select_day.Items.Add(day);
+                if (!cbox_select_day.Items.Contains(day))
+                    cbox_select_day.Items.Add(day);
             }
             //GlobalVars.form1.cbox_select_day.Items.Add();
 

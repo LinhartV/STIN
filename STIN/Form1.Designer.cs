@@ -142,9 +142,9 @@ namespace STIN
             this.DateWho.AutoSize = true;
             this.DateWho.Location = new System.Drawing.Point(207, 55);
             this.DateWho.Name = "DateWho";
-            this.DateWho.Size = new System.Drawing.Size(40, 15);
+            this.DateWho.Size = new System.Drawing.Size(36, 15);
             this.DateWho.TabIndex = 9;
-            this.DateWho.Text = "MZČR";
+            this.DateWho.Text = "WHO";
             // 
             // TotalMzcr
             // 
@@ -160,18 +160,18 @@ namespace STIN
             this.TotalWho.AutoSize = true;
             this.TotalWho.Location = new System.Drawing.Point(207, 103);
             this.TotalWho.Name = "TotalWho";
-            this.TotalWho.Size = new System.Drawing.Size(40, 15);
+            this.TotalWho.Size = new System.Drawing.Size(36, 15);
             this.TotalWho.TabIndex = 11;
-            this.TotalWho.Text = "MZČR";
+            this.TotalWho.Text = "WHO";
             // 
             // TotalDifference
             // 
             this.TotalDifference.AutoSize = true;
             this.TotalDifference.Location = new System.Drawing.Point(310, 103);
             this.TotalDifference.Name = "TotalDifference";
-            this.TotalDifference.Size = new System.Drawing.Size(40, 15);
+            this.TotalDifference.Size = new System.Drawing.Size(26, 15);
             this.TotalDifference.TabIndex = 12;
-            this.TotalDifference.Text = "MZČR";
+            this.TotalDifference.Text = "Diff";
             // 
             // LastDayMzcr
             // 
@@ -187,18 +187,18 @@ namespace STIN
             this.LastDayWho.AutoSize = true;
             this.LastDayWho.Location = new System.Drawing.Point(207, 149);
             this.LastDayWho.Name = "LastDayWho";
-            this.LastDayWho.Size = new System.Drawing.Size(40, 15);
+            this.LastDayWho.Size = new System.Drawing.Size(36, 15);
             this.LastDayWho.TabIndex = 14;
-            this.LastDayWho.Text = "MZČR";
+            this.LastDayWho.Text = "WHO";
             // 
             // LastDayDifference
             // 
             this.LastDayDifference.AutoSize = true;
             this.LastDayDifference.Location = new System.Drawing.Point(310, 149);
             this.LastDayDifference.Name = "LastDayDifference";
-            this.LastDayDifference.Size = new System.Drawing.Size(40, 15);
+            this.LastDayDifference.Size = new System.Drawing.Size(26, 15);
             this.LastDayDifference.TabIndex = 15;
-            this.LastDayDifference.Text = "MZČR";
+            this.LastDayDifference.Text = "Diff";
             // 
             // panel2
             // 

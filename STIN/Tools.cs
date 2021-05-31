@@ -31,7 +31,6 @@ namespace STIN
         public static void StartApp()
         {
             GetStateNames();
-            GlobalVars.form2.load_list_combobox();
             Repeat(() => Refresh(GlobalVars.who), 300000);
             Repeat(() => Refresh(GlobalVars.mzcr), 300000);
             Repeat(() => DownloadWho(("who" + DateTime.Now.ToString().Substring(0, 10)) + ".csv"), 600000);
@@ -214,6 +213,7 @@ namespace STIN
                     {
                         Repeat(() => Refresh(GlobalVars.mzcr), 300000);
                     }
+                    GlobalVars.form1.set_cbox_select_day();
                     //new day
                 }
             }
@@ -256,7 +256,7 @@ namespace STIN
                 if (GlobalVars.who.totalCases.Count > 1)
                     GlobalVars.form1.LastDayDifference.Text = Math.Abs((GlobalVars.who.totalCases[dayNum] - GlobalVars.who.totalCases[dayNum - 1]) - (GlobalVars.mzcr.totalCases[dayNum] - GlobalVars.mzcr.totalCases[dayNum - 1])).ToString();
             }
-            GlobalVars.form1.set_upToDate_label();
+            GlobalVars.form2.load_list_combobox();
         }
     }
 }

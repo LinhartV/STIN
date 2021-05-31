@@ -30,7 +30,7 @@ namespace STIN
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.testButton = new System.Windows.Forms.Button();
+            this.loadData = new System.Windows.Forms.Button();
             this.refreshButton = new System.Windows.Forms.Button();
             this.cbox_state_3 = new System.Windows.Forms.ComboBox();
             this.cbox_state_2 = new System.Windows.Forms.ComboBox();
@@ -50,16 +50,16 @@ namespace STIN
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // testButton
+            // loadData
             // 
-            this.testButton.Location = new System.Drawing.Point(520, 338);
-            this.testButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.testButton.Name = "testButton";
-            this.testButton.Size = new System.Drawing.Size(149, 50);
-            this.testButton.TabIndex = 2;
-            this.testButton.Text = "Load data";
-            this.testButton.UseVisualStyleBackColor = true;
-            this.testButton.Click += new System.EventHandler(this.testButton_Click);
+            this.loadData.Location = new System.Drawing.Point(520, 338);
+            this.loadData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.loadData.Name = "loadData";
+            this.loadData.Size = new System.Drawing.Size(149, 50);
+            this.loadData.TabIndex = 2;
+            this.loadData.Text = "Load data";
+            this.loadData.UseVisualStyleBackColor = true;
+            this.loadData.Click += new System.EventHandler(this.loadData_Click);
             // 
             // refreshButton
             // 
@@ -125,7 +125,7 @@ namespace STIN
             this.Controls.Add(this.cbox_state_2);
             this.Controls.Add(this.cbox_state_3);
             this.Controls.Add(this.refreshButton);
-            this.Controls.Add(this.testButton);
+            this.Controls.Add(this.loadData);
             this.Controls.Add(this.button1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form2";
@@ -139,7 +139,7 @@ namespace STIN
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button testButton;
+        private System.Windows.Forms.Button loadData;
         private System.Windows.Forms.Button refreshButton;
         private System.Windows.Forms.ComboBox cbox_state_3;
         private System.Windows.Forms.ComboBox cbox_state_2;
