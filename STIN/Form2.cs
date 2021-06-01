@@ -102,6 +102,7 @@ namespace STIN
 
                 chart_1.Series = new LiveCharts.SeriesCollecion
             {
+
                 new StackedColumnSeries()
                 {
                     Title = "latest day",

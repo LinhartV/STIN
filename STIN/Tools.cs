@@ -200,7 +200,7 @@ namespace STIN
                 {
                     Repeat(() => Refresh(GlobalVars.mzcr), 300000);
                 }
-                if (DateTime.Now.ToString().EndsWith("0:11:00"))
+                if (DateTime.Now.ToString().EndsWith("0:00:00"))
                 {
                     GlobalVars.mzcr.isUpToDate = false;
                     GlobalVars.who.isUpToDate = false;
@@ -214,7 +214,7 @@ namespace STIN
                         Repeat(() => Refresh(GlobalVars.mzcr), 300000);
                     }
                     GlobalVars.form1.set_cbox_select_day();
-                    //new day
+                    GlobalVars.form2.load_list_combobox();
                 }
             }
             catch (Exception e)
@@ -256,7 +256,7 @@ namespace STIN
                 if (GlobalVars.who.totalCases.Count > 1)
                     GlobalVars.form1.LastDayDifference.Text = Math.Abs((GlobalVars.who.totalCases[dayNum] - GlobalVars.who.totalCases[dayNum - 1]) - (GlobalVars.mzcr.totalCases[dayNum] - GlobalVars.mzcr.totalCases[dayNum - 1])).ToString();
             }
-            GlobalVars.form2.load_list_combobox();
+            
         }
     }
 }
