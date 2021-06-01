@@ -43,14 +43,8 @@ namespace STIN
 
                 //download the file for the first time
                 string fileName = "who" + DateTime.Now.ToString().Substring(0, 10) + ".csv";
-                //Khai - existing directory
-                string new_dir = Directory.GetCurrentDirectory() + "\\who" + DateTime.Now.ToString().Substring(0, 10);
-                bool dir_exists = System.IO.Directory.Exists(new_dir);
-                if (!dir_exists)
-                    System.IO.Directory.CreateDirectory(new_dir);
                 DownloadWho(fileName);
                 //get names
-                string just = File.ReadAllText(fileName);
                 string[] parts = File.ReadAllText(fileName).Replace(',', '|').Replace("Bonaire| Sint Eustatius and Saba", "Bonaire, Sint Eustatius and Saba").Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
 
                 for (int i = 1; i < parts.Length; i++)

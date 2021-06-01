@@ -41,10 +41,9 @@ namespace STIN
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(520, 85);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Location = new System.Drawing.Point(594, 113);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(149, 50);
+            this.button1.Size = new System.Drawing.Size(170, 67);
             this.button1.TabIndex = 0;
             this.button1.Text = "Return";
             this.button1.UseVisualStyleBackColor = true;
@@ -52,10 +51,9 @@ namespace STIN
             // 
             // loadData
             // 
-            this.loadData.Location = new System.Drawing.Point(520, 338);
-            this.loadData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.loadData.Location = new System.Drawing.Point(594, 451);
             this.loadData.Name = "loadData";
-            this.loadData.Size = new System.Drawing.Size(149, 50);
+            this.loadData.Size = new System.Drawing.Size(170, 67);
             this.loadData.TabIndex = 2;
             this.loadData.Text = "Load data";
             this.loadData.UseVisualStyleBackColor = true;
@@ -63,10 +61,9 @@ namespace STIN
             // 
             // refreshButton
             // 
-            this.refreshButton.Location = new System.Drawing.Point(520, 31);
-            this.refreshButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.refreshButton.Location = new System.Drawing.Point(594, 41);
             this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(149, 50);
+            this.refreshButton.Size = new System.Drawing.Size(170, 67);
             this.refreshButton.TabIndex = 3;
             this.refreshButton.Text = "Refresh";
             this.refreshButton.UseVisualStyleBackColor = true;
@@ -75,50 +72,55 @@ namespace STIN
             // cbox_state_3
             // 
             this.cbox_state_3.FormattingEnabled = true;
-            this.cbox_state_3.Location = new System.Drawing.Point(520, 212);
+            this.cbox_state_3.Location = new System.Drawing.Point(594, 283);
+            this.cbox_state_3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbox_state_3.Name = "cbox_state_3";
-            this.cbox_state_3.Size = new System.Drawing.Size(149, 23);
+            this.cbox_state_3.Size = new System.Drawing.Size(170, 28);
             this.cbox_state_3.TabIndex = 4;
             // 
             // cbox_state_2
             // 
             this.cbox_state_2.FormattingEnabled = true;
-            this.cbox_state_2.Location = new System.Drawing.Point(520, 170);
+            this.cbox_state_2.Location = new System.Drawing.Point(594, 227);
+            this.cbox_state_2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbox_state_2.Name = "cbox_state_2";
-            this.cbox_state_2.Size = new System.Drawing.Size(149, 23);
+            this.cbox_state_2.Size = new System.Drawing.Size(170, 28);
             this.cbox_state_2.TabIndex = 5;
             // 
             // cbox_state_5
             // 
             this.cbox_state_5.FormattingEnabled = true;
-            this.cbox_state_5.Location = new System.Drawing.Point(520, 296);
+            this.cbox_state_5.Location = new System.Drawing.Point(594, 395);
+            this.cbox_state_5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbox_state_5.Name = "cbox_state_5";
-            this.cbox_state_5.Size = new System.Drawing.Size(149, 23);
+            this.cbox_state_5.Size = new System.Drawing.Size(170, 28);
             this.cbox_state_5.TabIndex = 6;
             // 
             // cbox_state_4
             // 
             this.cbox_state_4.FormattingEnabled = true;
-            this.cbox_state_4.Location = new System.Drawing.Point(520, 255);
+            this.cbox_state_4.Location = new System.Drawing.Point(594, 340);
+            this.cbox_state_4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbox_state_4.Name = "cbox_state_4";
-            this.cbox_state_4.Size = new System.Drawing.Size(149, 23);
+            this.cbox_state_4.Size = new System.Drawing.Size(170, 28);
             this.cbox_state_4.TabIndex = 7;
             // 
             // chart_1
             // 
             this.chart_1.BackColor = System.Drawing.SystemColors.Window;
-            this.chart_1.Location = new System.Drawing.Point(24, 31);
+            this.chart_1.Location = new System.Drawing.Point(27, 41);
+            this.chart_1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chart_1.Name = "chart_1";
-            this.chart_1.Size = new System.Drawing.Size(454, 357);
+            this.chart_1.Size = new System.Drawing.Size(519, 476);
             this.chart_1.TabIndex = 8;
             this.chart_1.Text = "cartesianChart1";
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(689, 413);
+            this.ClientSize = new System.Drawing.Size(787, 551);
             this.Controls.Add(this.chart_1);
             this.Controls.Add(this.cbox_state_4);
             this.Controls.Add(this.cbox_state_5);
@@ -127,9 +129,8 @@ namespace STIN
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.loadData);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "Covid app";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
