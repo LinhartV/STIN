@@ -131,6 +131,7 @@ namespace STIN
             this.Controls.Add(this.button1);
             this.Name = "Form2";
             this.Text = "Covid app";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);

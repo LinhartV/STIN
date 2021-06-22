@@ -148,6 +148,9 @@ namespace STIN
             cbox_state_5.Items.AddRange(arr_states.ToArray());
         }
 
-
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Tools.EndAppAndSaveData();
+        }
     }
 }

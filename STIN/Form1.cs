@@ -26,8 +26,6 @@ namespace STIN
             Tools.VisualizeActualization(0);
             set_upToDate_label();
             set_cbox_select_day();
-            
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -87,6 +85,11 @@ namespace STIN
             string selected_day = cbox_select_day.SelectedItem.ToString();
             Tools.VisualizeActualization(GlobalVars.dates[selected_day]);
 
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Tools.EndAppAndSaveData();
         }
     }
 }

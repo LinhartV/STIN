@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -28,8 +29,50 @@ namespace STIN
             thatForm.Show();
             thisForm.Hide();
         }
+
+        internal static void GetSavedData()
+        {
+            if (File.Exists("SavedData.txt"))
+            {
+                string[] data = File.ReadAllText("SavedData.txt").Split('|');
+                string[][] datas = new string[data.Length][];
+                for (int i = 0; i < data.Length; i++)
+                {
+                    datas[i] = data[i].Split("@");
+                }
+                for (int i = 0; i < datas[0].Length; i++)
+                {
+                    GlobalVars.whoFileNames.Add(datas[0][i]);
+                }
+                for (int i = 0; i < datas[1].Length; i++)
+                {
+                    GlobalVars.dates.Add(datas[1][i],Convert.ToInt32(datas[1][++i]));
+                }
+            }
+        }
+        internal static void EndAppAndSaveData()
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < GlobalVars.whoFileNames.Count; i++)
+            {
+                sb.Append(GlobalVars.whoFileNames[i]+"@");
+            }
+            if(sb.Length>0)
+                sb.Remove(sb.Length - 1, 1);
+            sb.Append("|");
+            foreach (String d in GlobalVars.dates.Keys)
+            {
+                sb.Append(d +"@"+ GlobalVars.dates[d]+"@");
+            }
+            if (sb.Length > 1)
+                sb.Remove(sb.Length - 1, 1);
+            File.WriteAllText("SavedData.txt",sb.ToString());
+
+        }
+
         public static void StartApp()
         {
+            GetSavedData();
             GetStateNames();
             Repeat(() => Refresh(GlobalVars.who), 300000);
             Repeat(() => Refresh(GlobalVars.mzcr), 300000);
