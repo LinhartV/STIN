@@ -48,6 +48,23 @@ namespace STIN
                 {
                     GlobalVars.dates.Add(datas[1][i],Convert.ToInt32(datas[1][++i]));
                 }
+                for (int i = 0; i < datas[2].Length; i++)
+                {
+                    GlobalVars.mzcr.totalCases.Add(Convert.ToInt32(datas[2][i]), Convert.ToInt32(datas[2][++i]));
+                }
+                for (int i = 0; i < datas[3].Length; i++)
+                {
+                    GlobalVars.who.totalCases.Add(Convert.ToInt32(datas[3][i]), Convert.ToInt32(datas[3][++i]));
+                }
+                GlobalVars.mzcr.isUpToDate = Convert.ToBoolean(datas[4][0]);
+                GlobalVars.who.isUpToDate = Convert.ToBoolean(datas[5][0]);
+                GlobalVars.mzcr.isUpToDate = Convert.ToBoolean(datas[4][0]);
+                GlobalVars.who.isUpToDate = Convert.ToBoolean(datas[5][0]);
+                GlobalVars.mzcr.timeToUpdate = datas[6][0];
+                GlobalVars.who.timeToUpdate = datas[7][0];
+
+                GlobalVars.mzcr.lastRefresh = datas[8][0];
+                GlobalVars.who.lastRefresh = datas[9][0];
             }
         }
         internal static void EndAppAndSaveData()
@@ -66,6 +83,33 @@ namespace STIN
             }
             if (sb.Length > 1)
                 sb.Remove(sb.Length - 1, 1);
+            sb.Append("|");
+            foreach (int d in GlobalVars.mzcr.totalCases.Keys)
+            {
+                sb.Append(d + "@" + GlobalVars.mzcr.totalCases[d] + "@");
+            }
+            if (sb.Length > 1)
+                sb.Remove(sb.Length - 1, 1);
+            sb.Append("|");
+            foreach (int d in GlobalVars.who.totalCases.Keys)
+            {
+                sb.Append(d + "@" + GlobalVars.who.totalCases[d] + "@");
+            }
+            if (sb.Length > 1)
+                sb.Remove(sb.Length - 1, 1);
+            sb.Append("|");
+            sb.Append(GlobalVars.mzcr.isUpToDate.ToString());
+            sb.Append("|");
+            sb.Append(GlobalVars.who.isUpToDate.ToString());
+            sb.Append("|");
+            sb.Append(GlobalVars.mzcr.timeToUpdate);
+            sb.Append("|");
+            sb.Append(GlobalVars.who.timeToUpdate);
+            sb.Append("|");
+            sb.Append(GlobalVars.mzcr.lastRefresh);
+            sb.Append("|");
+            sb.Append(GlobalVars.who.lastRefresh);
+
             File.WriteAllText("SavedData.txt",sb.ToString());
 
         }
@@ -160,7 +204,7 @@ namespace STIN
                             data.totalCases.Add(data.totalCases.Count, value);
                             if (!GlobalVars.dates.ContainsKey(DateTime.Now.ToString().Substring(0, 10)))
                                 GlobalVars.dates.Add(DateTime.Now.ToString().Substring(0, 10), GlobalVars.dates.Count);
-                            data.lastRefresh = DateTime.Now;
+                            data.lastRefresh = DateTime.Now.ToString();
                             VisualizeActualization(data.totalCases.Count - 1);
                         }
                     }

@@ -11,11 +11,11 @@ namespace STIN
         public Dictionary<int, int> totalCases = new Dictionary<int, int>();
         public bool isUpToDate = false;
         public string timeToUpdate = "";
+        public string lastRefresh;
         public string url;
         public int row;
         public int col;
         public string fileName;
-        public DateTime lastRefresh;
 
         public Data(string url, string fileName, int col, int row)
         {
