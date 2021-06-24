@@ -108,7 +108,7 @@ namespace STIN
                     Title = "latest day",
                     Values = new ChartValues<double> { latest_data[0],
                         latest_data[1], latest_data[2],
-                        latest_data[3], latest_data[3]
+                        latest_data[3], latest_data[4]
                     },
                     DataLabels = true
                 },

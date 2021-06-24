@@ -242,7 +242,7 @@ namespace STIN
                         stateInfo = states[j].Split('|');
                         if (state == stateInfo[0])
                         {
-                            output.Add(Convert.ToDouble(stateInfo[7].Replace('.', ',')));
+                            output.Add(Convert.ToDouble(stateInfo[8].Replace('.', ',')));
                             break;
                         }
                     }
